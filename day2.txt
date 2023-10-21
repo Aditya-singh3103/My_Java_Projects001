@@ -1,0 +1,383 @@
+Google Classroom
+Classroom
+Object Oriented Programming with Java
+PG-DAC & PG-DBDA Sept 2023
+Home
+Calendar
+Enrolled
+To-do
+O
+Operating System
+PG DAC & DBDA Sept 22
+W
+Web Programming Technologies
+DAC Sept 2023
+A
+Aptitude & Mind Bender_Sept 2023
+O
+Object Oriented Programming with Java
+PG-DAC & PG-DBDA Sept 2023
+D
+Database Technologies
+PG-DAC & PG-DBDA Sept 2023
+C
+C++ Programming PG-DAC Sept 2023
+PG-DAC Sept 2023
+F
+Foundation Course Logic Test_Sept 2023
+Sept 2023
+Archived classes
+Settings
+Assignment details
+Upload your Day 2 assignment solution here 
+SM VITA
+•
+Sep 26 (Edited Sep 27)
+Due Sep 27, 4:00 PM
+Class comments
+Your work
+Turned in
+
+Aditya_singh_009_Assignment day2.txt
+Text
+Work cannot be turned in after the due date
+Private comments
+1)create a class "Shape" with 2 attributes, "width" and "height". Make sure one can not access these attributes directly.
+provide accessor methods on these attributes and allow them to call from outside of your class.
+--->>>>
+ import java.lang.*;
+import java.util.Scanner;
+
+class shape {
+	private double width ,height;
+
+	public double getWidth() {
+		return width;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+	public double getHeight() {
+		return height;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+	 
+}
+
+
+public class myclass {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in); 
+		System.out.print("Enter height  = ");
+		double a = input.nextDouble(); 
+		System.out.print("Enter width  = ");
+		 
+		double b =  input.nextDouble();  
+		shape s1 = new shape();
+s1.setHeight(a);
+
+System.out.println("The height is   "+(s1.getHeight()));
+s1.setWidth(b);
+System.out.println("The weidth is   "+(s1.getWidth()));	
+	}
+
+}
+
+_____________________________________________________________________________________________________________________
+2) Define a class "MyClass" and make sure clients can instantiate it , 
+a) without any argument
+b) with one int argument
+c) with two int arguments
+------>>>>>>
+package day2q1;
+
+
+class myClass{
+	private
+	int a ,b;
+	
+	public
+	myClass() {   
+		System.out.println("No parameter");
+		
+	}
+	
+myClass(int a) {  
+	System.out.println("one parameter");
+	this.a =a;
+		
+	}
+	
+myClass(int a,int b) {      
+	System.out.println("Two parameter");
+	this.a =a;
+	this.b =b;
+}
+	
+}
+
+public class My{
+
+	public static void main(String[] args) {
+		myClass m1 = new myClass();
+		myClass m2 = new myClass(10);
+		myClass m3 = new myClass(11,12);	
+	}
+}
+
+_____________________________________________________________________________________________________________________
+3) Define a class "Emp" with private static member "int cnt".
+How will u make sure that outsiders can read the value of cnt ?
+------->>>>>>
+
+package day2__que3;
+
+class Emp{
+	private  static int cnt;
+
+
+	Emp(int k){
+		cnt = k;
+	}
+
+
+	public static int getCnt() {
+		return cnt;
+	}
+
+
+}
+
+
+public class MyClass {
+
+	public static void main(String[] args) {
+		Emp e1 = new Emp(10);
+		System.out.println(Emp.getCnt());
+
+
+	}
+
+}
+_____________________________________________________________________________________________________________________________________ 4)Define a class "DemoOb". 
+create an instance of it.
+now create a reference and assign the reference created in the above statement.
+	Discuss what happens?
+Now since u have 2 references, take one of the reference and assign a new instance of the class.
+	Discuss what happens?
+(For ur discussion, write necessary comments in the program)
+------>>>>>>
+class DemoOb{
+	private
+	int a;
+
+	public int getA() {
+		return a;
+	}
+
+	public void setA(int a) {
+		this.a = a;
+	}
+}
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		
+		DemoOb ob1 = new DemoOb();     // creating a object on heap
+		DemoOb ref;                   //  creating ref refrence
+		ref =ob1;                    // assining object to reference
+		ob1 = new DemoOb();         // creating new object and assigning to obj1 
+	}
+
+}
+
+
+____________________________________________________________________________________________________________________________________
+5) Define 3 classes A , B and C
+in all these classes create static and nonstatic variables as well as methods.
+	Now Define a class "Demo" ,in which define "main" function. From this main function try to access all the members of A ,B  and C.
+
+----->>>>>>
+
+package coding_foundation;
+import java.util.*;
+
+class A
+{
+	private int num;
+	private static int num1;
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public static void setNum1(int num1) {
+		A.num1 = num1;
+	}
+	public static int getNum1()
+	{
+		return A.num1;
+	}
+}
+class B
+{
+	private int num;
+	public static int num1;
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+}
+class C
+{
+	private int num;
+	public static int num1;
+	
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+}
+
+public class pattern
+{
+	public static void main(String [] args)
+	{
+			A obj1=new A();
+			obj1.setNum(100);
+			System.out.println(obj1.getNum());
+			B obj2 = new B();
+			obj2.setNum(100);
+			System.out.println(obj2.getNum());
+			C obj3 = new C();
+			obj3.setNum(100);
+			System.out.println(obj3.getNum());
+			A.setNum1(100);
+			B.num1 = 100;
+			C.num1 =100;
+			System.out.println(A.getNum1());
+			System.out.println(B.num1);
+			System.out.println(C.num1);
+			
+			
+	}
+	
+	
+}
+_____________________________________________________________________________________________________________________________________________
+
+
+6) define static initializers in the above A,B and C classes and check the order of their execution.
+------->>>>>
+
+
+package coding_foundation;
+import java.util.*;
+
+class A
+{
+	private int num;
+	private static int num1;
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public static void setNum1(int num1) {
+		A.num1 = num1;
+	}
+	public static int getNum1()
+	{
+		return A.num1;
+	}
+	static
+	{
+		System.out.println("inside A");
+	}
+}
+class B
+{
+	private int num;
+	public static int num1;
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+	static
+	{
+		System.out.println("inside B");
+	}
+}
+class C
+{
+	private int num;
+	public static int num1;
+	
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+	static
+	{
+		System.out.println("inside C");
+	}
+}
+
+public class pattern
+{
+	public static void main(String [] args)
+	{
+			A obj1=new A();
+			obj1.setNum(100);
+			System.out.println(obj1.getNum());
+			B obj2 = new B();
+			obj2.setNum(100);
+			System.out.println(obj2.getNum());
+			C obj3 = new C();
+			obj3.setNum(100);
+			System.out.println(obj3.getNum());
+			A.setNum1(100);
+			B.num1 = 100;
+			C.num1 =100;
+			System.out.println(A.getNum1());
+			System.out.println(B.num1);
+			System.out.println(C.num1);
+			
+			
+	}
+	static
+	{
+		System.out.println("inside main");
+	}
+	
+}
+
+
+
+
+
