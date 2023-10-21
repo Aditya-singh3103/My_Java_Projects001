@@ -1,0 +1,54 @@
+DEVELOPER CODE :
+
+/**
+ * 
+ */
+package devpack;
+
+/**
+ * @author Aditya
+ */
+public class MyClass1 {
+	int num;
+
+	/**
+	 * @return the num
+	 */
+	public int getNum() {
+		return num;
+	}
+
+	/**
+	 * @param num the num to set
+	 */
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	@Override
+	public String toString() {
+		return ""+num;
+	
+	}
+	public MyClass1() {
+		super();
+	}
+
+}
+
+
+CLIENT CODE :
+
+package clientpro;
+
+import devpack.MyClass1;
+
+public class Demo {
+
+	public static void main(String[] args) {
+     MyClass1 m1 = new MyClass1();
+      m1.setNum(100);
+        System.out.println(m1.getNum());
+	}
+
+}
