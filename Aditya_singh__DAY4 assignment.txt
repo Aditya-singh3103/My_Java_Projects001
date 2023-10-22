@@ -1,0 +1,387 @@
+QUE1--
+package assignment1;
+class first {
+	private 
+	int num1;
+	
+	public 
+	
+	first() {
+		
+	}
+	
+	void setnum1(int k) {
+		
+		num1 =k;
+		
+	}
+	
+	int getnum() {
+		return num1;
+	}
+	
+}
+
+class second {
+	private 
+	int num1;
+	
+	public 
+	
+	second() {
+		
+	}
+	
+	void setnum1(int k) {
+		
+		num1 =k;
+		
+	}
+	
+	int getnum() {
+		return num1;
+	}
+	
+}
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		first f1 = new first();
+		f1.setnum1(44);
+	     System.out.println(f1.getnum());
+		
+		second s1 = new second();
+		s1.setnum1(619);
+		System.out.println(s1.getnum());
+		
+		
+
+	}
+
+}
+QUE 2-------
+package assignment2;
+
+class fun{
+	static int a;
+	int b;
+	
+	fun(){
+		a=11;
+	    b=22;
+	}
+	
+	
+	static int fun1() {
+		return a;
+	}
+	
+	int getb() {
+		return b;
+	}
+}
+
+public class Myclass {
+
+	public static void main(String[] args) {
+	fun a = new fun();
+	System.out.println(a.getb());
+	
+	System.out.println(fun.fun1());
+
+	}
+
+}
+QUE 3------
+package assignment4;
+
+class base{
+	int a= 11;
+
+   base(){
+	   System.out.println("base constructor call");     
+   }
+}
+
+ class sub extends base {
+	 
+	 sub(){
+System.out.println("sub constructor call");
+	 
+ }
+ }
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		
+   sub s1 =new sub();
+	
+}
+	}
+
+
+
+QUE 4----
+package assignment4;
+
+class base{
+	int a= 11;
+
+   base(){
+	   System.out.println("base constructor call");     
+   }
+}
+
+ class sub extends base {
+	 
+	 sub(){
+System.out.println("sub constructor call");
+	 
+ }
+ }
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		
+   sub s1 =new sub();
+	
+}
+	}
+
+
+
+QUE 5  ----
+       package assignment5;
+
+
+
+class base{
+	int a= 11;
+
+   base(){
+	   System.out.println("base constructor call");     
+   }
+}
+
+ class sub1 extends base {
+	 
+	 sub1(){
+System.out.println("sub constructor call");
+	 
+ }
+ }
+ 
+ 
+ 
+ class sub2 extends sub1 {
+	 sub2(){
+		 System.out.println("constructor of sub 2");
+	 }
+	 
+ }
+
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+sub2 s2 = new sub2();
+	}
+
+}
+QUE 6--->>
+package assignment6;
+
+
+
+class base{
+	int a= 11;
+
+   base(){
+	   System.out.println("base constructor call");     
+   }
+}
+
+ class sub1 extends base {
+	 
+	 sub1(){
+System.out.println("sub1 constructor call");
+	 
+ }
+ }
+ 
+ class sub2  extends base{
+		
+
+	   sub2(){
+		   System.out.println("sub2 constructor call");     
+	   }
+	}
+
+	 class sub3 extends base {
+		 
+		 sub3(){
+	System.out.println("sub3 constructor call");
+		 
+	 }
+	 }
+public class Myclass {
+
+	public static void main(String[] args) {
+		sub3 s3 = new sub3();
+
+	}
+
+}
+QUE 7
+package assignment7;
+
+class parent{
+	void run() {
+		System.out.println("parent class");
+	}
+}
+class child extends parent {
+	void run () {
+		System.out.println("child class");
+	}
+	
+}
+
+
+
+
+public class Myclass {
+
+	public static void main(String[] args) {
+	
+     child c1 = new child();
+     c1.run();
+     
+	}
+
+}
+QUE 8->>
+package assignment8;
+
+class parent{
+	
+	void run (int k ) {
+		System.out.println("parent run");
+	}
+	
+}
+
+  class child extends parent {
+	  void run (int a ,int b) {
+		  System.out.println("child run");
+	  }
+	
+	
+}
+
+public class Myclass {
+
+	public static void main(String[] args) {
+	child c1 = new child();
+	c1.run(2,3);
+
+	}
+
+}
+QUE 9------>
+package assignment9;
+class shape{
+	void draw() {}
+}
+
+class circle extends shape {
+	void draw() {
+		System.out.println("Deaw a circle");
+	}
+	
+}
+
+
+class rectangle extends shape {
+	void draw() {
+		System.out.println("Deaw a rectangle");
+	}
+	
+}
+
+class polygon extends shape {
+	void draw() {
+		System.out.println("Deaw a polygon");
+	}
+	
+}
+
+public class Myclass {
+	public static void run(shape ref) {
+		ref.draw();
+		
+	}
+	
+
+	public static void main(String[] args) {
+		run(new circle());
+		run(new rectangle());
+		run(new polygon());
+	}
+
+}
+QUE 10--->>
+
+package assignment;
+class Vechicle{
+   void	start() {
+	   
+   }
+}
+class twowheeler extends Vechicle{
+	void start() {
+		System.out.println("start twowheeler");
+	}
+}
+
+class threewheeler extends Vechicle{
+	void start() {
+		System.out.println("start threewheeler");
+	}
+	void speed () {
+		System.out.println("Run with full speed");
+	}
+	
+}
+
+class fourwheeler extends Vechicle{
+	void start() {
+		System.out.println("start fourwheeler");
+	}
+}
+
+
+public class Myclass {
+	
+	public static void run(Vechicle ref) {
+		if(ref instanceof threewheeler) {
+			threewheeler ref1 = (threewheeler)ref;
+			ref1.speed();
+		}
+		
+		ref.start();
+		
+		
+	}
+	public static void main(String[] args) {
+		
+        run(new twowheeler());
+        run(new threewheeler());
+        run(new fourwheeler());
+	}
+
+}
