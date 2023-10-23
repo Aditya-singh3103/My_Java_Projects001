@@ -1,0 +1,448 @@
+1) Create a multi-level inheritance , instantiate the child class and observe constructor invocation.Also show, if needed how will u invoke parent class constructor from child class ?
+-->>
+package ass_5_1;
+
+class parent{
+	parent( int x){
+		System.out.println(x);
+		System.out.println("Default constructor of parent");
+	}
+}
+class child1 extends parent{
+	child1(){
+		super(10);
+		System.out.println("child 1 constructor");
+	}
+}
+
+class child2 extends child1{
+	child2(){
+		System.out.println("child 1 constructor");
+	}
+}
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		
+child2 c2 = new child2();
+	}
+
+}
+_______________________________________________________________________________________________
+
+2) create a class "Vehicle", define a method "public void start()" in it. From this class derive a class FourWheeler. How will u override "start()" method of parent class ?
+---->>>>>package ass_5_2;
+
+class vehicle{
+	public void start() {
+		System.out.println("Speed");
+		
+	}
+}
+
+class FourWheeler extends vehicle {
+	public  void start() {
+		System.out.println("Fourwheeler will start");
+		
+	}
+}
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		
+		FourWheeler F1 = new FourWheeler();
+		F1.start();
+	}
+
+}
+________________________________________________________________________________________________________
+3) Go for Hierarchical inheritance, create instances of child class and observe constructor invocation.
+
+
+package ass_5_3;
+
+class parent {
+	parent(){
+		System.out.println("parent constructor");
+	}
+}
+class child1 extends parent{
+	child1(){
+		System.out.println("constructor of child 1");
+	}
+	}
+	
+
+class child2 extends parent{
+	child2(){
+		System.out.println("constructor of child 2");
+	}
+	
+}
+
+
+class child3 extends parent{
+	child3(){
+		System.out.println("constructor of child 3");
+	}
+	}
+	
+
+
+public class Myclass {
+
+	public static void main(String[] args) {
+	child3 c3 = new child3();
+	
+	}
+
+}
+
+_______________________________________________________________________________________________________________________
+4) Create a class "Top1" with "disp1()" method.
+From this class Derive "Bottom1", "Bottom2" and "Bottom3" classes ,override the "disp1()".
+Now show how will u achieve dynamic polymorphism.
+
+package ass_5_4;
+
+   class top{
+	 public void  disp() {
+		 System.out.println("disp");
+	}
+   }
+   class Botton1 extends top {
+	   public void disp() {
+		   System.out.println("Botton 1 ");
+	   }
+   }
+
+   class Botton2 extends top {
+	   public void disp() {
+		   System.out.println("Botton 2 ");
+	   }
+   }
+
+   class Botton3 extends top {
+	public void disp() {
+		   System.out.println("Botton 3 ");
+	   }
+   }
+
+
+public class Myclass {
+
+	public static void main(String[] args) {
+	
+		Botton3 B3 = new Botton3();
+		B3.disp();
+		Botton1 B1 = new Botton1();
+		B1.disp();
+		Botton2 B2 = new Botton2();
+		B2.disp();
+
+	}
+
+}
+________________________________________________
+
+5) create abstract class Shape. declare "draw()" function as abstract. From this class define "Triangle","Polygon" and "Circle" .
+create an array of Shape having 3 elements.
+store child objects into this array . and call
+their draw function.
+
+package ass_5_5;
+
+abstract class shape{
+	
+  abstract void draw();
+	
+}
+
+class Triangle extends shape {
+	void draw(){
+		System.out.println("Triangle is draw");
+	}
+}
+
+
+class Polygon extends shape{
+	void draw(){
+		System.out.println("Triangle is draw");
+	}
+}
+
+
+class Circle extends shape{
+	void draw(){
+		System.out.println("Triangle is draw");
+	}
+}
+
+
+
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		shape arr[] =new shape[3];
+		arr[0]=new Triangle();
+		arr[1]=new Polygon();
+		arr[2]=new Circle();
+
+		
+		for(int i=0;i<arr.length;i++){
+			arr[i].draw();
+		}
+		
+	}
+
+}
+______________________________________________________________
+
+6) Define interface "A" with "disp1()" method.
+Derive from "A", interface "B" with "disp2" method.
+Derive class "C" , from "B".
+Instantiate class "C" and call its members as well as derived from parent interfaces.
+------>>>>>
+package ass_5_6;
+interface A{
+	void disp1();
+}
+
+interface B extends A {
+	void disp2();
+	}
+
+class C implements B{
+
+	@Override
+	public void disp1() {
+		System.out.println("A = interface ");
+		
+	}
+
+	@Override
+	public void disp2() {
+		System.out.println("B = interface");
+		
+	}
+	
+}
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		C c1= new C();
+		c1.disp1();
+		c1.disp2();
+
+	}
+
+}
+
+
+__________________________________________________________________________________
+
+7) Define class "Parent1" with some data.
+Define interface "Parent2" with some methods.
+Derive a class "Child" from "Parent1" and "Parent2", instantiate it and call the members.
+
+
+package as_5_7;
+
+class parent1{
+	int age =22;
+}
+interface parent2{
+	public void disp();   
+
+}
+class child extends parent1 implements parent2{
+int age =22;
+	
+	
+	
+	@Override
+	public void disp() {
+		System.out.println("PArent 2 disp");
+	}
+
+	
+	
+}
+
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		child c1 = new child();
+c1.disp();
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------
+8) Define a class "base1" with only parameterized constructor.
+Derive a class "sub1" from "base1". This class should have following constructors
+	a) Default
+	b) one parameter
+	c) two parameter
+Now try to instantiate "sub1" , using any of the above mentioned constructors.
+package ass_5_8;
+
+class Base1{
+	
+	
+	Base1(int x){
+		System.out.println("BAse constructor");
+	}
+}
+
+ class sub extends Base1 {
+	 sub(){
+		 super(10);
+		 System.out.println("Default of sub");
+	 }
+	 sub(int a){
+		 super(10);
+		 System.out.println("1 para const");
+	 }
+	 
+	 sub (int a, int b){
+		 super(10);
+		 System.out.println("Two para const");
+	 }
+	 
+	 
+ }
+ 
+
+public class Myclass {
+
+	public static void main(String[] args) {
+		sub s1 = new sub(10);
+		sub s2 = new sub(10,20);
+		
+	}
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+9)create interface "Game" , have an abstract method "play()". from this interface implements classes like "Cricket" , "FootBall" and "Tennis".
+Now Define one more class 
+public class Demo with main function.
+In this class have a static method "perform" which will take interface reference as parameter.inside "perform()" see to it that any child object passed ,its "play()" method should be invoked. Call "perform()" method from main function.
+package ass_5_10;
+interface Game{
+	void	play();
+}
+
+class cricket implements Game{
+
+	@Override
+	public void play() {
+		System.out.println("play cricket");
+
+	}
+
+}
+class football implements Game{
+
+	@Override
+	public void play() {
+		System.out.println("play football");
+	}
+	}
+
+	class tennis implements Game{
+
+		@Override
+		public void play() {
+			System.out.println("play tennis");
+
+		}
+
+
+
+	}
+
+
+
+
+
+
+	public class Myclass {
+
+		public static void perform(Game ref) {
+			ref.play();
+		}
+
+
+		public static void main(String[] args) {
+
+			perform(new football());
+			perform(new cricket());
+			perform(new tennis());
+
+
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
